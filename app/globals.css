@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FBF6EC;
+  --color-cream-deep: #F4ECD9;
+  --color-ink: #1A1B1E;
+  --color-ink-soft: #2D2F33;
+  --color-teal: #0F4C5C;
+  --color-teal-mid: #2A7A8C;
+  --color-teal-soft: #C9E4EA;
+  --color-amber: #E8A33D;
+  --color-amber-soft: #F8D88A;
+  --color-coral: #E76F51;
+  --color-coral-soft: #F4B89F;
+  --color-sage: #7A9B7E;
+  --color-sage-soft: #C9DCC9;
+  --color-rose: #D4A29C;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-card: 28px;
+  --radius-pill: 999px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-ink);
+}
+
+/* Decorative dotted pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(15, 76, 92, 0.18) 1px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+.dot-grid-dense {
+  background-image: radial-gradient(circle, rgba(15, 76, 92, 0.25) 1px, transparent 1.5px);
+  background-size: 12px 12px;
+}
+
+/* Hand-drawn squiggle underline */
+.squiggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' fill='none' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4' stroke='%23E8A33D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.4em;
+  padding-bottom: 0.15em;
+}
+
+.squiggle-coral {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' fill='none' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4' stroke='%23E76F51' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.4em;
+  padding-bottom: 0.15em;
+}
+
+/* Floating animation for the magnifier */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-14px) rotate(-5deg); }
+}
+
+.float-anim {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+  50% { border-radius: 40% 60% 45% 55% / 60% 40% 60% 40%; }
+}
+
+.blob-anim {
+  animation: blob 12s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  animation: fade-up 0.9s ease-out backwards;
+}
+
+/* Section scaffolding */
+.section {
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section { padding: 8rem 2.5rem; }
+}
+
+.container-x {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Display heading */
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01" on;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1.5px;
+  background: var(--color-amber);
+  display: inline-block;
+}
+
+/* Card baseline */
+.soft-card {
+  background: white;
+  border: 1px solid rgba(15, 76, 92, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 0 rgba(15, 76, 92, 0.04), 0 20px 40px -28px rgba(15, 76, 92, 0.18);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1px 0 rgba(15, 76, 92, 0.04), 0 30px 60px -28px rgba(15, 76, 92, 0.28);
+}
