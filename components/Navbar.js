@@ -35,7 +35,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2.5 group">
             <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-teal text-cream">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+              >
                 <circle cx="10" cy="10" r="6" />
                 <path d="M14.5 14.5 L20 20" strokeLinecap="round" />
                 <circle cx="10" cy="10" r="2.2" fill="currentColor" />

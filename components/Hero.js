@@ -3,7 +3,10 @@ import { HiSparkles } from "react-icons/hi2";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+    <section
+      id="top"
+      className="relative pl-5  overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
+    >
       {/* Decorative background blob */}
       <div
         aria-hidden="true"
@@ -36,8 +39,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 text-lg md:text-xl text-ink-soft max-w-xl leading-relaxed">
-              Schools teach maths, science, languages. We teach the one thing they don't, how to
-              feel, understand, and choose, before reacting.
+              Schools teach maths, science, languages. We teach the one thing
+              they don't, how to feel, understand, and choose, before reacting.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -81,11 +84,23 @@ export default function Hero() {
               aria-hidden="true"
               className="absolute inset-0 flex items-center justify-center spin-slow"
             >
-              <svg viewBox="0 0 400 400" className="w-[110%] h-[110%] opacity-40">
+              <svg
+                viewBox="0 0 400 400"
+                className="w-[110%] h-[110%] opacity-40"
+              >
                 <defs>
-                  <path id="circle" d="M 200, 200 m -150, 0 a 150,150 0 1,1 300,0 a 150,150 0 1,1 -300,0" fill="none" />
+                  <path
+                    id="circle"
+                    d="M 200, 200 m -150, 0 a 150,150 0 1,1 300,0 a 150,150 0 1,1 -300,0"
+                    fill="none"
+                  />
                 </defs>
-                <text fontSize="11" letterSpacing="6" fill="#0F4C5C" fontFamily="Plus Jakarta Sans">
+                <text
+                  fontSize="11"
+                  letterSpacing="6"
+                  fill="#0F4C5C"
+                  fontFamily="Plus Jakarta Sans"
+                >
                   <textPath href="#circle">
                     FEEL · UNDERSTAND · CHOOSE · FEEL · UNDERSTAND · CHOOSE ·
                   </textPath>
@@ -95,7 +110,10 @@ export default function Hero() {
 
             {/* Magnifier */}
             <div className="relative float-anim">
-              <svg viewBox="0 0 280 280" className="w-72 md:w-80 drop-shadow-[0_25px_40px_rgba(15,76,92,0.25)]">
+              <svg
+                viewBox="0 0 280 280"
+                className="w-72 md:w-80 drop-shadow-[0_25px_40px_rgba(15,76,92,0.25)]"
+              >
                 {/* Handle */}
                 <rect
                   x="180"
@@ -121,7 +139,15 @@ export default function Hero() {
                 <circle cx="115" cy="115" r="78" fill="#F4ECD9" />
                 {/* Inner pattern - the "mind" */}
                 <g>
-                  <circle cx="115" cy="115" r="60" fill="none" stroke="#0F4C5C" strokeWidth="1.5" strokeDasharray="2 6" />
+                  <circle
+                    cx="115"
+                    cy="115"
+                    r="60"
+                    fill="none"
+                    stroke="#0F4C5C"
+                    strokeWidth="1.5"
+                    strokeDasharray="2 6"
+                  />
                   <circle cx="115" cy="115" r="40" fill="#C9E4EA" />
                   {/* Brain-like squiggle */}
                   <path
@@ -133,7 +159,15 @@ export default function Hero() {
                   <circle cx="118" cy="125" r="2" fill="#F8D88A" />
                 </g>
                 {/* Highlight on glass */}
-                <ellipse cx="85" cy="85" rx="20" ry="12" fill="white" opacity="0.5" transform="rotate(-30 85 85)" />
+                <ellipse
+                  cx="85"
+                  cy="85"
+                  rx="20"
+                  ry="12"
+                  fill="white"
+                  opacity="0.5"
+                  transform="rotate(-30 85 85)"
+                />
                 {/* Sparkle decorations */}
                 <g fill="#E8A33D">
                   <path d="M 240 60 L 244 70 L 254 74 L 244 78 L 240 88 L 236 78 L 226 74 L 236 70 Z" />
