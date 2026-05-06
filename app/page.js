@@ -10,18 +10,19 @@ import AgeWise from "@/components/AgeWise";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import HowWeTeachNew from "@/components/how-we-teach";
+import Vision from "@/components/vision";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
+      <Vision />
       <Problem />
       <Curriculum />
       <HowWeTeachNew />
       <Format />
       <Solution />
-
       <Impact />
       <AgeWise />
       <CTA />

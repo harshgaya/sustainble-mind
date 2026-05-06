@@ -6,6 +6,7 @@ import {
   LuPencil,
 } from "react-icons/lu";
 import { FaTheaterMasks } from "react-icons/fa";
+import Image from "next/image";
 
 /* Character SVGs */
 function Blaze() {
@@ -231,6 +232,7 @@ const characters = [
     nameColor: "text-coral",
     headline: "Acts impulsively",
     desc: "Driven by anger or emotions",
+    image: "/images/blaze.jpeg",
   },
   {
     name: "Shello",
@@ -239,6 +241,7 @@ const characters = [
     nameColor: "text-teal",
     headline: "Avoids or shuts down",
     desc: "Feels scared or overwhelmed",
+    image: "/images/shello.jpeg",
   },
   {
     name: "Champ",
@@ -247,6 +250,7 @@ const characters = [
     nameColor: "text-amber",
     headline: "Thinks clearly",
     desc: "Chooses wisely and stays in control",
+    image: "/images/champ.jpeg",
   },
   {
     name: "Tejix",
@@ -255,6 +259,7 @@ const characters = [
     nameColor: "text-sage",
     headline: "Guides with wisdom",
     desc: "Helps you reflect and decide better",
+    image: "/images/tejjix.jpeg",
   },
 ];
 
@@ -325,9 +330,10 @@ export default function HowWeTeachNew() {
                   key={c.name}
                   className={`soft-card ${c.cardBg} p-5 md:p-6 text-center hover:-translate-y-1 transition-transform`}
                 >
-                  <div className="aspect-square w-full max-w-[180px] mx-auto">
+                  {/* <div className="aspect-square w-full max-w-[180px] mx-auto">
                     <SvgChar />
-                  </div>
+                  </div> */}
+                  <Image src={c.image} height={200} width={200} />
                   <h4
                     className={`mt-4 display italic text-2xl md:text-3xl ${c.nameColor}`}
                   >
