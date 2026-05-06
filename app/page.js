@@ -9,6 +9,7 @@ import HowWeTeach from "@/components/HowWeTeach";
 import AgeWise from "@/components/AgeWise";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import HowWeTeachNew from "@/components/how-we-teach";
 
 export default function Home() {
   return (
@@ -17,9 +18,10 @@ export default function Home() {
       <Hero />
       <Problem />
       <Curriculum />
+      <HowWeTeachNew />
       <Format />
       <Solution />
-      <HowWeTeach />
+
       <Impact />
       <AgeWise />
       <CTA />
