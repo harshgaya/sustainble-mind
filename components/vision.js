@@ -8,6 +8,7 @@ import {
 import { FiGlobe } from "react-icons/fi";
 import { HiAcademicCap } from "react-icons/hi2";
 import { FaUserFriends } from "react-icons/fa";
+import Image from "next/image";
 
 /* -------------------------------------------------------- */
 /*  Illustrations                                            */
@@ -340,7 +341,13 @@ export default function Vision() {
           </div>
 
           <div className="md:col-span-5 flex justify-center md:justify-end">
-            <Telescope />
+            <Image
+              src="/images/telescope.png"
+              alt="Student wearing a hoodie with backpack"
+              width={400}
+              height={500}
+              className="w-40 md:w-56 h-auto"
+            />
           </div>
         </div>
 
@@ -375,8 +382,17 @@ export default function Vision() {
         {/* Lower panel: boy + features + globe */}
         <div className="mt-8 rounded-[28px] bg-cream-deep p-8 md:p-10 border border-ink/5">
           <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-center">
-            <div className="md:col-span-3 flex justify-center">
+            {/* <div className="md:col-span-3 flex justify-center">
               <Boy />
+            </div> */}
+            <div className="md:col-span-3 flex justify-center">
+              <Image
+                src="/images/boy-new.png"
+                alt="Student wearing a hoodie with backpack"
+                width={400}
+                height={500}
+                className="w-40 md:w-56 h-auto"
+              />
             </div>
 
             <div className="md:col-span-5">
@@ -403,7 +419,13 @@ export default function Vision() {
             </div>
 
             <div className="md:col-span-4 flex justify-center md:justify-end">
-              <Globe />
+              <Image
+                src="/images/globe.png"
+                alt="Student wearing a hoodie with backpack"
+                width={400}
+                height={500}
+                className="w-40 md:w-56 h-auto"
+              />
             </div>
           </div>
         </div>
