@@ -29,8 +29,9 @@ export default function CTA() {
                 <span className="italic text-amber">to your classroom.</span>
               </h2>
               <p className="mt-6 text-lg text-cream/70 leading-relaxed max-w-lg">
-                We pilot with one grade, train your teachers, and grow with the school. Most
-                pilots run 12 weeks. Booking opens for the next academic year.
+                We pilot with one grade, train your teachers, and grow with the
+                school. Most pilots run 12 weeks. Booking opens for the next
+                academic year.
               </p>
             </div>
 
@@ -43,13 +44,13 @@ export default function CTA() {
                   Book a school demo
                   <FiArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a
+                {/* <a
                   href="mailto:hello@sustainablemind.in"
                   className="flex items-center justify-between gap-3 border-2 border-cream/20 text-cream rounded-2xl px-6 py-5 font-semibold hover:border-amber hover:text-amber transition-colors"
                 >
                   Download the brochure
                   <FiArrowRight className="h-5 w-5" />
-                </a>
+                </a> */}
               </div>
               <p className="mt-5 text-xs text-cream/50">
                 Pilots typically begin within 4 to 6 weeks of first contact.

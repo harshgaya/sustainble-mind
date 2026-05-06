@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FBF6EC;
-  --color-cream-deep: #F4ECD9;
-  --color-ink: #1A1B1E;
-  --color-ink-soft: #2D2F33;
-  --color-teal: #0F4C5C;
-  --color-teal-mid: #2A7A8C;
-  --color-teal-soft: #C9E4EA;
-  --color-amber: #E8A33D;
-  --color-amber-soft: #F8D88A;
-  --color-coral: #E76F51;
-  --color-coral-soft: #F4B89F;
-  --color-sage: #7A9B7E;
-  --color-sage-soft: #C9DCC9;
-  --color-rose: #D4A29C;
+  --color-cream: #fbf6ec;
+  --color-cream-deep: #f4ecd9;
+  --color-ink: #1a1b1e;
+  --color-ink-soft: #2d2f33;
+  --color-teal: #0f4c5c;
+  --color-teal-mid: #2a7a8c;
+  --color-teal-soft: #c9e4ea;
+  --color-amber: #e8a33d;
+  --color-amber-soft: #f8d88a;
+  --color-coral: #e76f51;
+  --color-coral-soft: #f4b89f;
+  --color-sage: #7a9b7e;
+  --color-sage-soft: #c9dcc9;
+  --color-rose: #d4a29c;
+  --color-lavender: #b5a6e0;
+  --color-lavender-soft: #dcd4f0;
 
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --radius-card: 28px;
   --radius-pill: 999px;
@@ -41,18 +42,28 @@ body {
   color: var(--color-ink);
 }
 
-/* Decorative dotted pattern */
+/* ---------------------------------------------------------------- */
+/*  Decorative patterns                                              */
+/* ---------------------------------------------------------------- */
+
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(15, 76, 92, 0.18) 1px, transparent 1.5px);
+  background-image: radial-gradient(
+    circle,
+    rgba(15, 76, 92, 0.18) 1px,
+    transparent 1.5px
+  );
   background-size: 18px 18px;
 }
 
 .dot-grid-dense {
-  background-image: radial-gradient(circle, rgba(15, 76, 92, 0.25) 1px, transparent 1.5px);
+  background-image: radial-gradient(
+    circle,
+    rgba(15, 76, 92, 0.25) 1px,
+    transparent 1.5px
+  );
   background-size: 12px 12px;
 }
 
-/* Hand-drawn squiggle underline */
 .squiggle {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' fill='none' preserveAspectRatio='none'%3E%3Cpath d='M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4' stroke='%23E8A33D' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -69,51 +80,119 @@ body {
   padding-bottom: 0.15em;
 }
 
-/* Floating animation for the magnifier */
+/* ---------------------------------------------------------------- */
+/*  Animations - mobile-safe                                         */
+/* ---------------------------------------------------------------- */
+
+/* Float - cheap transform animation, runs on all devices */
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-14px) rotate(-5deg); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(-5deg);
+  }
 }
 
 .float-anim {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
+/* Spin - desktop only */
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .spin-slow {
-  animation: spin-slow 30s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-@keyframes blob {
-  0%, 100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
-  50% { border-radius: 40% 60% 45% 55% / 60% 40% 60% 40%; }
+@media (min-width: 768px) {
+  .spin-slow {
+    animation: spin-slow 30s linear infinite;
+  }
 }
 
+/* Blob - static shape on mobile/tablet, morphs on desktop */
 .blob-anim {
-  animation: blob 12s ease-in-out infinite;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
 }
 
+@media (min-width: 1024px) {
+  @keyframes blob {
+    0%,
+    100% {
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+    }
+    50% {
+      border-radius: 40% 60% 45% 55% / 60% 40% 60% 40%;
+    }
+  }
+  .blob-anim {
+    animation: blob 12s ease-in-out infinite;
+    will-change: border-radius;
+  }
+}
+
+/* Fade-up - one-shot, runs everywhere */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .reveal {
   animation: fade-up 0.9s ease-out backwards;
+  will-change: transform, opacity;
 }
 
-/* Section scaffolding */
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .float-anim,
+  .spin-slow,
+  .blob-anim,
+  .reveal {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/*  Section scaffolding                                              */
+/* ---------------------------------------------------------------- */
+
 .section {
   padding: 6rem 1.5rem;
   position: relative;
 }
 
 @media (min-width: 768px) {
-  .section { padding: 8rem 2.5rem; }
+  .section {
+    padding: 8rem 2.5rem;
+  }
 }
 
 .container-x {
@@ -121,7 +200,10 @@ body {
   margin-inline: auto;
 }
 
-/* Display heading */
+/* ---------------------------------------------------------------- */
+/*  Typography                                                       */
+/* ---------------------------------------------------------------- */
+
 .display {
   font-family: var(--font-display);
   font-weight: 600;
@@ -129,7 +211,6 @@ body {
   font-feature-settings: "ss01" on;
 }
 
-/* Eyebrow label */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -149,16 +230,25 @@ body {
   display: inline-block;
 }
 
-/* Card baseline */
+/* ---------------------------------------------------------------- */
+/*  Cards                                                            */
+/* ---------------------------------------------------------------- */
+
 .soft-card {
   background: white;
   border: 1px solid rgba(15, 76, 92, 0.08);
   border-radius: var(--radius-card);
-  box-shadow: 0 1px 0 rgba(15, 76, 92, 0.04), 0 20px 40px -28px rgba(15, 76, 92, 0.18);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow:
+    0 1px 0 rgba(15, 76, 92, 0.04),
+    0 20px 40px -28px rgba(15, 76, 92, 0.18);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .soft-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 1px 0 rgba(15, 76, 92, 0.04), 0 30px 60px -28px rgba(15, 76, 92, 0.28);
+  box-shadow:
+    0 1px 0 rgba(15, 76, 92, 0.04),
+    0 30px 60px -28px rgba(15, 76, 92, 0.28);
 }

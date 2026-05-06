@@ -71,7 +71,7 @@ export default function Footer() {
             </a> */}
             <div className="mt-5 flex items-center gap-3">
               <a
-                href="#"
+                href="https://www.instagram.com/sustainablemind.in?igsh=NGwyMGN5b2RhZ29s"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 hover:border-coral hover:text-coral transition-colors"
                 aria-label="Instagram"
               >
